@@ -1,0 +1,29 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #000000;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: TOP;
+  font-size: calc(10px + 2vmin);
+  color: #20C20E;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+.Wallet-table {
+  width: "100%";
+  border: 1px solid  #20C20E;
+  font-size: calc(8px + 2vmin);
+  border-collapse: separate;
+}
