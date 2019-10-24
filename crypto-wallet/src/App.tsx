@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import { Wallet } from "./wallet";
+import { BuySell } from "./buy-sell";
 
 const App: React.FC = () => {
   return (
@@ -9,6 +10,8 @@ const App: React.FC = () => {
         <p>
           CRYPTO WALLET
         </p>
+        <BuySell/>
+        <br/>
         <Wallet/>
       </header>
     </div>

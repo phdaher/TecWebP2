@@ -2,7 +2,7 @@ export interface walletItem {
     coin: string;  qty: number;
   }
   
-  export const walletContent: walletItem[] = [
+  export const walletInitialContent: walletItem[] = [
     { coin: "bitcoin", qty: 0.12 },
     { coin: "ethereum", qty: 1.03 },
     { coin: "litecoin", qty: 1.39 },

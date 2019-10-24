@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { coin, walletItem, walletContent } from "./wallet-content";
+import { coin, walletItem, walletInitialContent } from "./wallet-content";
+import createPersistedState from 'use-persisted-state';
+
+const useWalletState = createPersistedState('crypto-wallet');
 
 export function Wallet() {
   const [coinList, setCoinList] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [wallet, setWallet] = useWalletState(walletInitialContent);
 
   useEffect(() => {
     fetch(`https://api.coincap.io/v2/assets`, {
@@ -31,12 +35,12 @@ export function Wallet() {
           <th>|....Qty....|</th>
           <th>|....Value (US$)....|</th>
         </tr>
-        {walletContent.map((item: walletItem, index) => (
+        {wallet.map((item: walletItem, index) => (
           <tr>
             <td>{getCoinByName(coinList, item.coin).symbol}</td>
             <td>{getCoinByName(coinList, item.coin).name}</td>
             <td>{round2dec(getCoinByName(coinList, item.coin).priceUsd)}</td>
-            <td>{item.qty}</td>
+            <td>{round2dec(item.qty)}</td>
             <td>
               {round2dec(
                 getCoinByName(coinList, item.coin).priceUsd * item.qty
@@ -49,7 +53,7 @@ export function Wallet() {
           <th></th>
           <th></th>
           <th></th>
-          <th>{round2dec(getTotal(coinList, walletContent))}</th>
+          <th>{round2dec(getTotal(coinList, wallet))}</th>
         </tr>
       </table>
       <div>Time:</div>
