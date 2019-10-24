@@ -56,7 +56,6 @@ export function Wallet() {
           <th>{round2dec(getTotal(coinList, wallet))}</th>
         </tr>
       </table>
-      <div>Time:</div>
     </div>
   );
 }

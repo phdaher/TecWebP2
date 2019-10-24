@@ -11,14 +11,6 @@ export function BuySell() {
 
   return (
     <div>
-      <input
-        value={quantity}
-        type="number"
-        name="quantity"
-        min="0.00"
-        max="5.00"
-        onChange={e => setQuantity(Number(e.target.value))}
-      ></input>
       <select value={coin} onChange={e => setCoin(e.target.value)}>
         <option value="bitcoin">Bitcoin</option>
         <option value="ethereum">Ethereum</option>
@@ -34,6 +26,14 @@ export function BuySell() {
         <option value="binance-coin">Binance Coin</option>
         <option value="bitcoin-sv">Bitcoin SV</option>
       </select>
+      <input
+        value={quantity}
+        type="number"
+        name="quantity"
+        min="0.00"
+        max="5.00"
+        onChange={e => setQuantity(Number(e.target.value))}
+      ></input>
       <button
         onClick={() =>
           setWallet(wallet => {
